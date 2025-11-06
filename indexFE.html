@@ -24,45 +24,17 @@
                 background-color: #fe8d62;
             }
         </style>
-        <script>
-            console.log("Javascript from Tic Tac Toe")
-
-            let turn = "x" //x, o
-            
-            function boardClicked(id)
-            {
-                console.log(id+" boardClicked")
-                updateBoardLabel("boardLabel"+id)
-            }
-            function manageTurn()
-            {
-                if(turn === "x")
-                    turn = "o"
-                else if(turn === "o")
-                    turn = "x"
-            }
-            function updateBoardLabel(labelId)
-            {
-                if(turn === "x")
-                {
-                    document.getElementById(labelId).textContent = "X"
-                    manageTurn()
-                }
-                else if(turn === "o")
-                {
-                    document.getElementById(labelId).textContent = "O"
-                    manageTurn()
-                }
-            }
-
-        </script>
     </head>
     <body style="display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;">
         <h1>Tic Tac Toe</h1>
-        <label>Player X's Turn</label>
+        <label>
+            Player 
+            <label id="playerTurnLabel">X</label>
+            's Turn
+        </label>
         <!-- Score box -->
         <div style="
             display: flex;
@@ -127,5 +99,7 @@
             <button>Reset Scores</button>
         </div>
         <!-- Button Div ended -->
+        <script src="indexFE.js">
+        </script>
     </body>
 </html>
