@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Tic Tac Toe: Game</title>
+        <!-- <style href="indexSHDC.css">
+            
+        </style> -->
+        <link rel="stylesheet" href="indexSHDC.css"/>
+        
+    </head>
+    <body style="display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;">
+        <h1>Tic Tac Toe</h1>
+        <label>Player X's Turn</label>
+        <!-- Score box -->
+        <div class="scoreBoard">
+            <div><!-- Score child -->
+                Player X:
+                <span id="xScore">0</span>
+            </div>
+            <div><!-- Score child -->
+                Draw:
+                <span id="drawScore">0</span>
+            </div>
+            <div><!-- Score child -->
+                Player O:
+                <span id="oScore">0</span>
+            </div>
+        </div>
+        <!-- Score box ended -->
+        <!-- O X Board -->
+        <div class="board">
+            <div class="cell" onclick="boxClicked(1)">
+                <label class="boardTextLabel" id="boardLabel1"></label>
+            </div>
+            <div class="cell" onclick="boxClicked(2)">
+                <label class="boardTextLabel" id="boardLabel2"></label>
+            </div>
+            <div class="cell" onclick="boxClicked(3)">
+                <label class="boardTextLabel" id="boardLabel3"></label>
+            </div>
+            <div class="cell" onclick="boxClicked(4)">
+                <label class="boardTextLabel" id="boardLabel4"></label>
+            </div>
+            <div class="cell" onclick="boxClicked(5)">
+                <label class="boardTextLabel" id="boardLabel5"></label>
+            </div>
+            <div class="cell" onclick="boxClicked(6)">
+                <label class="boardTextLabel" id="boardLabel6"></label>
+            </div>
+            <div class="cell" onclick="boxClicked(7)">
+                <label class="boardTextLabel" id="boardLabel7"></label>
+            </div>
+            <div class="cell" onclick="boxClicked(8)">
+                <label class="boardTextLabel" id="boardLabel8"></label>
+            </div>
+            <div class="cell" onclick="boxClicked(9)">
+                <label class="boardTextLabel" id="boardLabel9"></label>
+            </div>
+        </div>
+        <!-- O X Board ended-->
+        <!-- Button Div -->
+        <div>
+            <button onclick="startNewGame()">New Game</button>
+            <button onclick="resetScores()">Reset Scores</button>
+        </div>
+        <!-- Button Div ended -->
+         <div class="trophy-container" id="trophy-container">
+            <div id="trophy" class="trophy">🏆</div>
+         </div>
+         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+         <script src="indexSHDC.js"></script>
+    </body>
+</html>
