@@ -3,11 +3,37 @@ console.log("Javascript from Tic Tac Toe")
 let turn = "x" //x, o
 let xResponseArray = []
 let oResponseArray = []
+const winArray = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9],
+    [1, 5, 9],
+    [3, 5, 7]
+]
+/*
+1 2 3
+4 5 6
+7 8 9
+
+row, column, diagonal
+
+1 2 3
+4 5 6
+7 8 9
+1 4 7
+2 5 8
+3 6 9
+1 5 9
+3 5 7
+*/
 var playerTurnLabel = document.getElementById("playerTurnLabel")
 
 function boardClicked(id)
 {
-    console.log(id+" boardClicked")
+    // console.log(id+" boardClicked")
     updateBoardLabel("boardLabel"+id, id)
 }
 function manageTurn()
@@ -32,6 +58,12 @@ function updateBoardLabel(labelId, id)
             document.getElementById(labelId).textContent = "X"
             manageTurn()
             xResponseArray.push(id)
+            if(xResponseArray.length > 2)
+            {
+                if(winCheck(xResponseArray))
+                    console.log("X Won")
+
+            }
         }
     }
     else if(turn === "o")
@@ -41,8 +73,69 @@ function updateBoardLabel(labelId, id)
             document.getElementById(labelId).textContent = "O"
             manageTurn()
             oResponseArray.push(id)
+            if(oResponseArray.length > 2)
+            {
+                if(winCheck(oResponseArray))
+                    console.log("O Won")
+            }
         }
     }
-    console.log("xResponseArray: ", xResponseArray)
-    console.log("oResponseArray: ", oResponseArray)
+    // console.log("xResponseArray: ", xResponseArray)
+    // console.log("oResponseArray: ", oResponseArray)
+}
+
+/*
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9],
+    [1, 5, 9],
+    [3, 5, 7] */
+// function winCheck(responseArray) // [4, 1, 3, 2]=>true // [4, 1, 2] => false
+// {
+//     let checkWinFlag = 0
+//     for(let count = 0; count< responseArray.length; count++)
+//     {//4
+//         checkWinFlag = 0
+//         for(let count1 = 0; count1< winArray.length; count1++)//8
+//         {//[1, 2, 3]    //[4, 5, 6],    
+//             if(winArray[count1].includes(responseArray[count]))
+//             {
+//                 checkWinFlag++ //1
+//                 if(checkWinFlag >2)
+//                     return true
+//                 break
+//             }
+//             if(checkWinFlag<3)
+//                 checkWinFlag = 0
+//         }
+//     }
+//     if(checkWinFlag < 3)
+//         return false
+// }
+// let result = winCheck([4, 1, 3, 2])
+// console.log("result: [4, 1, 3, 2]: ", result)
+// winCheck([4, 1, 2])
+// console.log("result: [4, 1, 2]: ", result)
+function winCheck(responseArray)
+{
+    return winArray.some(winCombo =>
+        winCombo.every(num => responseArray.includes(num))
+    );
+    // checks in any of the array element is meeting 
+    // the function returned output
+}
+
+function newGame()
+{
+    for(let count = 1; count< 10; count++)
+    {
+        document.getElementById("boardLabel"+count).textContent = ""
+    }
+    xResponseArray = []
+    oResponseArray = []
+    turn = "x"
+    playerTurnLabel.textContent = "X"
 }
