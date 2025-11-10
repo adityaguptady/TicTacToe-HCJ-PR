@@ -49,15 +49,15 @@
             margin: 1em;">
             <div style="margin: 0.8em;"><!-- Score child -->
                 Player X:
-                <span>0</span>
+                <span id="xScore">0</span>
             </div>
             <div style="margin: 0.8em;"><!-- Score child -->
                 Draw:
-                <span>0</span>
+                <span id="drawScore">0</span>
             </div>
             <div style="margin: 0.8em;"><!-- Score child -->
                 Player O:
-                <span>0</span>
+                <span id="oScore">0</span>
             </div>
         </div>
         <!-- Score box ended -->
@@ -96,7 +96,7 @@
         <!-- Button Div -->
         <div>
             <button onclick="newGame()">New Game</button>
-            <button>Reset Scores</button>
+            <button onclick="resetScores()">Reset Scores</button>
         </div>
         <!-- Button Div ended -->
         <script src="indexFE.js">
