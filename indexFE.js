@@ -13,7 +13,7 @@ const winArray = [
     [1, 5, 9],
     [3, 5, 7]
 ]
-
+var win = 0
 var xScore = document.getElementById("xScore")
 var xScoreCount = 0
 var oScore = document.getElementById("oScore")
@@ -70,6 +70,7 @@ function updateBoardLabel(labelId, id)
                 if(winCheck(xResponseArray))
                 {
                     xScore.textContent = ++xScoreCount
+                    win = 1
                     console.log("X Won")
                 }
             }
@@ -87,6 +88,7 @@ function updateBoardLabel(labelId, id)
                 if(winCheck(oResponseArray))
                 {
                     oScore.textContent = ++oScoreCount
+                    win = 1
                     console.log("O Won")
                 }
             }
@@ -94,6 +96,11 @@ function updateBoardLabel(labelId, id)
     }
     // console.log("xResponseArray: ", xResponseArray)
     // console.log("oResponseArray: ", oResponseArray)
+    if(xResponseArray.length + oResponseArray.length >= 9 && win == 0)
+    {
+        drawScore.textContent = ++drawScoreCount
+        console.log("Draw!!!!")
+    }
 }
 
 /*
@@ -152,6 +159,7 @@ function newGame()
     oResponseArray = []
     turn = "x"
     playerTurnLabel.textContent = "X"
+    win = 0
 }
 
 function resetScores()
@@ -159,6 +167,8 @@ function resetScores()
     newGame()
     oScoreCount = 0
     xScoreCount = 0
+    drawScoreCount = 0
     xScore.textContent = xScoreCount
     oScore.textContent = oScoreCount
+    drawScore.textContent = drawScoreCount
 }
