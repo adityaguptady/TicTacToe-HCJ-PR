@@ -20,6 +20,9 @@ var oScore = document.getElementById("oScore")
 var oScoreCount = 0
 var drawScore = document.getElementById("drawScore")
 var drawScoreCount = 0
+
+var trophyContainer = document.getElementById("trophy-container")
+var trophy = document.getElementById("trophy")
 /*
 1 2 3
 4 5 6
@@ -72,6 +75,7 @@ function updateBoardLabel(labelId, id)
                     xScore.textContent = ++xScoreCount
                     win = 1
                     console.log("X Won")
+                    showTrophy()
                 }
             }
         }
@@ -90,6 +94,7 @@ function updateBoardLabel(labelId, id)
                     oScore.textContent = ++oScoreCount
                     win = 1
                     console.log("O Won")
+                    showTrophy()
                 }
             }
         }
@@ -160,6 +165,7 @@ function newGame()
     turn = "x"
     playerTurnLabel.textContent = "X"
     win = 0
+    hideTrophy()
 }
 
 function resetScores()
@@ -171,4 +177,16 @@ function resetScores()
     xScore.textContent = xScoreCount
     oScore.textContent = oScoreCount
     drawScore.textContent = drawScoreCount
+}
+
+function showTrophy()
+{
+    trophyContainer.style.display = "flex"
+    trophy.style.opacity = 1
+}
+
+function hideTrophy()
+{
+    trophyContainer.style.display = "none"
+    trophy.style.opacity = 0
 }

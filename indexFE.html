@@ -26,11 +26,25 @@
 
             .trophy
             {
-                /* opacity: 0; */
+                opacity: 0;
                 position: fixed;
                 top: 50%;
                 font-size: 6rem;
                 left: 46%;
+            }
+
+            .trophy-container
+            {
+                display: none;
+                background-color: white;
+                width: 9em;
+                height: 9em;
+                position: fixed;
+                top: 47%;
+                left: 44%;
+                border: 2px solid #a9a9a9;
+                border-radius: 70px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
             }
         </style>
     </head>
@@ -102,7 +116,9 @@
             </div>
         </div>
 
-        <div class="trophy">🏆</div>
+        <div class="trophy-container" id="trophy-container">
+            <div class="trophy" id="trophy">🏆</div>
+        </div>
         <!-- O X Board ended-->
         <!-- Button Div -->
         <div>
