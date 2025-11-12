@@ -181,6 +181,7 @@ function resetScores()
 
 function showTrophy()
 {
+    startConfetti()
     trophyContainer.style.display = "flex"
     trophy.style.opacity = 1
 }
@@ -189,4 +190,32 @@ function hideTrophy()
 {
     trophyContainer.style.display = "none"
     trophy.style.opacity = 0
+    stopConfetti()
+}
+
+var confettiIntervalID = 0
+
+function startConfetti()
+{
+    confetti({
+        particleCount: 500,
+        spread: 100,
+        origin: {y: 0.6},
+        colors: ['#0047ab', '#00bfff', '#ff0000', '#00ff00']
+    })
+
+    confettiIntervalID = setInterval(() => {
+        confetti({
+            particleCount: 500,
+            spread: 100,
+            origin: {y: 0.6},
+            colors: ['#0047ab', '#00bfff', '#ff0000', '#00ff00']
+        })
+    }, 4000);
+}
+
+function stopConfetti()
+{
+    clearInterval(confettiIntervalID)
+    confettiIntervalID = null
 }
